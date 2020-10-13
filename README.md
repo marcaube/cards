@@ -1,7 +1,7 @@
 # Cards
 [chrishunt.co/cards](http://chrishunt.co/cards)
 
-> "If you can memorize a shuffled deck of cards, you can memorize anything." - me
+> "If you can memorize a shuffled deck of cards, you can memorize anything." - Chris Hunt
 
 Practice makes perfect and perfect makes an awesome party! Use this app to
 sharpen your memory skills. Never drop a *real* playing card on the floor ever
