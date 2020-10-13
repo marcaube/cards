@@ -1,5 +1,6 @@
 function Timer() {
   this.startTime = 0;
+  this.metronome = 0;
 
   this.now = function() {
     return new Date().getTime();
@@ -23,11 +24,21 @@ function Timer() {
     return this.startTime;
   };
 
+  this.onTickCallback = function() {}
+
   this.duration = function() {
     if (this.running()) {
       var total   = (this.now() - this.startTime) / 1000.0,
           minutes = Math.floor(total / 60.0),
           seconds = (total - (minutes * 60)).toFixed(2);
+
+      if (
+        this.metronome != 0
+        && Math.floor(seconds) != 0
+        && Math.floor(seconds) % this.metronome == 0
+      ) {
+        this.onTickCallback();
+      }
 
       if (seconds < 10) { seconds = '0' + seconds; }
 
