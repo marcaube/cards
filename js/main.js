@@ -8,12 +8,6 @@ var card     = document.getElementById('card'),
 var cardHammer  = Hammer(card, { prevent_default: true }),
     timerHammer = Hammer(time, { prevent_default: true });
 
-timer.metronome = 5;
-timer.onTickCallback = debounce(function() {
-  draw(deck.nextCard());
-  updateProgress();
-}, 1000, true);
-
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
@@ -105,5 +99,17 @@ document.onkeypress = function (e) {
     toggleTimer();
   }
 };
+
+
+timer.metronome = 0;
+
+document.getElementById('metronome').onchange = function () {
+    timer.metronome = document.getElementById("metronome").value;
+};
+
+timer.onTickCallback = debounce(function() {
+  draw(deck.nextCard());
+  updateProgress();
+}, 250, true);
 
 init();
