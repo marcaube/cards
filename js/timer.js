@@ -34,7 +34,6 @@ function Timer() {
 
       if (
         this.metronome != 0
-        && Math.floor(seconds) != 0
         && Math.floor(seconds) % this.metronome == 0
       ) {
         this.onTickCallback();

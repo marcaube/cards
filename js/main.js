@@ -9,13 +9,10 @@ var cardHammer  = Hammer(card, { prevent_default: true }),
     timerHammer = Hammer(time, { prevent_default: true });
 
 timer.metronome = 5;
-
-cb = debounce(function() {
+timer.onTickCallback = debounce(function() {
   draw(deck.nextCard());
   updateProgress();
 }, 1000, true);
-
-timer.onTickCallback = cb;
 
 function debounce(func, wait, immediate) {
   var timeout;
